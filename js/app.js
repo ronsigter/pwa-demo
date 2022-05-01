@@ -32,7 +32,6 @@ const showCoffees = () => {
 document.addEventListener('DOMContentLoaded', showCoffees)
 
 // Instantiating install button
-
 let deferredPrompt
 const installApp = document.getElementById('installApp')
 
@@ -44,6 +43,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Update UI to notify the user they can add to home screen
   installApp.style.display = 'inline-block'
 
+  // Add a click event on targeted element
   installApp.addEventListener('click', (e) => {
     // hide our user interface that shows our A2HS button
     installApp.style.display = 'none'

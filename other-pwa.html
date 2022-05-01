@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome PWA Features</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+
+    <script defer src="js/bluetooth.js"></script>
+    <script defer src="js/location.js"></script>
+    <script defer src="js/contact-picker.js"></script>
+    <script defer src="js/device-motion.js"></script>
+    <script defer src="js/file-system.js"></script>
+    <script defer src="js/idle-detection.js"></script>
+    <script defer src="js/sharing.js"></script>
+    <script defer src="js/idle-detection.js"></script>
+  </head>
+  <body>
+    <h2>Location</h2>
+    <div id="location">
+      <div>
+        <p>Latitude: 0</p>
+        <p>Longitude: 0</p>
+      </div>
+    </div>
+    <h2>Bluetooth</h2>
+    <button id="ble">Connect Device</button>
+    <div id="bluetooth">
+      <div>
+        <p>Battery : 0%</p>
+        <p>Heart Rate: 0 bpm</p>
+      </div>
+    </div>
+    <h2>Device Orientation</h2>
+    <div id="motion">
+      <div>
+        <p>Alpha: 0&#176;</p>
+        <p>Beta: 0&#176;</p>
+        <p>Gamma: 0&#176;</p>
+      </div>
+    </div>
+    <h2>Contact Picker</h2>
+    <p>(only in mobile browsers)</p>
+    <button id="contacts">Select Contacts</button>
+    <h2>Idle Detection</h2>
+    <button id="idle">Idle Detection</button>
+    <h2>File System</h2>
+    <p>(only in desktop browsers)</p>
+    <button id="fs-get">Read File</button>
+    <button id="fs-save">Write File</button>
+    <h2>Web Share</h2>
+    <button id="share">Share on Twitter</button>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+      }
+    </script>
+  </body>
+</html>

@@ -1,12 +1,20 @@
 // declare name of cache
-const staticDevCoffee = 'dev-coffee-site-v1'
+const staticDevCoffee = 'pwa-v1'
 
 // assets to be cache
 const assets = [
   '/',
   '/index.html',
+  '/other-pwa.html'
   '/css/style.css',
   '/js/app.js',
+  '/js/bluetooth.js',
+  '/js/contact-picker.js',
+  '/js/device-motion.js',
+  '/js/file-system.js',
+  '/js/idle-detection.js',
+  '/js/location.js',
+  '/js/sharing.js',
   '/images/pokes/pokemon-1.png',
   '/images/pokes/pokemon-2.png',
   '/images/pokes/pokemon-3.png',
