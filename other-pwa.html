@@ -16,6 +16,7 @@
     <script defer src="js/idle-detection.js"></script>
     <script defer src="js/sharing.js"></script>
     <script defer src="js/idle-detection.js"></script>
+    <script defer src="js/usb-devices.js"></script>
   </head>
   <body>
     <h2>Location</h2>
@@ -52,7 +53,9 @@
     <button id="fs-save">Write File</button>
     <h2>Web Share</h2>
     <button id="share">Share on Twitter</button>
-
+    <h2>USB Devices</h2>
+    <input id="printContent"></input>
+    <button id="print">Print</button>
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js')
