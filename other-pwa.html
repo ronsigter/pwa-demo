@@ -27,6 +27,7 @@
         <p>Longitude: 0</p>
       </div>
     </div>
+
     <h2>Bluetooth</h2>
     <button id="ble">Connect Device</button>
     <div id="bluetooth">
@@ -35,6 +36,7 @@
         <p>Heart Rate: 0 bpm</p>
       </div>
     </div>
+
     <h2>Device Orientation</h2>
     <div id="motion">
       <div>
@@ -43,27 +45,33 @@
         <p>Gamma: 0&#176;</p>
       </div>
     </div>
+
     <h2>Contact Picker</h2>
     <p>(only in mobile browsers)</p>
     <button id="contacts">Select Contacts</button>
+
     <h2>Idle Detection</h2>
     <button id="idle">Idle Detection</button>
+
     <h2>File System</h2>
     <p>(only in desktop browsers)</p>
     <button id="fs-get">Read File</button>
     <button id="fs-save">Write File</button>
+
     <h2>Web Share</h2>
     <button id="share">Share on Twitter</button>
+
     <h2>USB Devices</h2>
     <input id="printContent"></input>
+    <button id="printConnect">Connect</button>
     <button id="print">Print</button>
+
     <h2>Serial</h2>
     <button id="serialConnect">Connect</button>
     <input type="color" id="colorPicker" value="#0000ff">
     <button id="serialOn">On</button>
     <button id="serialOff">Off</button>
     <button id="serialClose">Close</button>
-
 
     <script>
       if ('serviceWorker' in navigator) {

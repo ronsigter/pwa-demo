@@ -1,16 +1,7 @@
 let device
 const filters = { filters: [] }
 
-function setup(device) {
-  return device
-    .open()
-    .then(() => device.selectConfiguration(1))
-    .then(() =>
-      device.claimInterface(device.configuration.interfaces[0].interfaceNumber)
-    )
-}
-
-function print() {
+const print = () => {
   const string = document.getElementById('printContent').value + '\n'
   const encoder = new TextEncoder()
   const data = encoder.encode(string)
@@ -19,20 +10,19 @@ function print() {
   })
 }
 
-function connectAndPrint() {
+const connect = async () => {
   if (device == null) {
-    navigator.usb
-      .requestDevice(filters)
-      .then((selectedDevice) => {
-        device = selectedDevice
-        console.log(device)
-        return setup(device)
-      })
-      .then(() => print())
-      .catch((error) => {
-        console.log(error)
-      })
-  } else print()
+    try {
+      device = await navigator.usb.requestDevice(filters)
+      await device.open()
+      await device.selectConfiguration(1)
+      await device.claimInterface(
+        device.configuration.interfaces[0].interfaceNumber
+      )
+    } catch (error) {
+      console.log(error)
+    }
+  } else console.log('[USB Thermal Printer]: Already Connected')
 }
 
 navigator.usb
@@ -47,5 +37,5 @@ navigator.usb
     console.log(error)
   })
 
-const printBtn = document.getElementById('print')
-printBtn.addEventListener('click', connectAndPrint)
+document.getElementById('print').addEventListener('click', print)
+document.getElementById('printConnect').addEventListener('click', connect)
