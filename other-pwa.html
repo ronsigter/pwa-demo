@@ -18,6 +18,8 @@
     <script defer src="js/idle-detection.js"></script>
     <script defer src="js/usb-devices.js"></script>
     <script defer src="js/serial-port.js"></script>
+    <script defer src="js/notification.js"></script>
+
   </head>
   <body>
     <h2>Location</h2>
@@ -46,6 +48,10 @@
       </div>
     </div>
 
+    <h2>Notifications</h2>
+    <button id="notiPerm">Ask Permission</button>
+    <button id="getNotification">Get Notification</button>
+
     <h2>Contact Picker</h2>
     <p>(only in mobile browsers)</p>
     <button id="contacts">Select Contacts</button>
@@ -61,17 +67,17 @@
     <h2>Web Share</h2>
     <button id="share">Share on Twitter</button>
 
-    <h2>USB Devices</h2>
-    <input id="printContent"></input>
-    <button id="printConnect">Connect</button>
-    <button id="print">Print</button>
-
     <h2>Serial</h2>
     <button id="serialConnect">Connect</button>
     <input type="color" id="colorPicker" value="#0000ff">
     <button id="serialOn">On</button>
     <button id="serialOff">Off</button>
     <button id="serialClose">Close</button>
+
+    <h2>USB Devices</h2>
+    <input id="printContent"></input>
+    <button id="printConnect">Connect</button>
+    <button id="print">Print</button>
 
     <script>
       if ('serviceWorker' in navigator) {

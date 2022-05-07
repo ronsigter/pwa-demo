@@ -1,11 +1,11 @@
 // declare name of cache
-const staticDevCoffee = 'pwa-v1'
+const staticDevCoffee = 'pwa-v2'
 
 // assets to be cache
 const assets = [
   '/',
   '/index.html',
-  '/other-pwa.html'
+  '/other-pwa.html',
   '/css/style.css',
   '/js/app.js',
   '/js/bluetooth.js',
@@ -50,6 +50,31 @@ self.addEventListener('fetch', (fetchEvent) => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then((res) => {
       return res || fetch(fetchEvent.request)
+    })
+  )
+})
+
+self.addEventListener('push', (event) => {
+  const title = 'A message from the President'
+  const body = 'Patayen keta'
+  const icon = '/images/digong.png'
+  const tag = 'simple-push-demo-notification-tag'
+
+  event.waitUntil(
+    self.registration.showNotification(title, {
+      body: body,
+      icon: icon,
+      tag: tag,
+      actions: [
+        {
+          action: 'explore',
+          title: 'Explore this new world',
+        },
+        {
+          action: 'close',
+          title: 'Close notification',
+        },
+      ],
     })
   )
 })
