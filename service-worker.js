@@ -1,5 +1,5 @@
 // declare name of cache
-const staticDevCoffee = 'pwa-v2'
+const cacheName = 'pwa-v2'
 
 // assets to be cache
 const assets = [
@@ -26,6 +26,7 @@ const assets = [
   '/images/pokes/pokemon-9.png',
 ]
 
+// ? SECOND LIFECYCLE OF SW - "INSTALLATION"
 // listen to `intall` event of serviceWorker. Called only once
 self.addEventListener('install', (installEvent) => {
   // Caching something on the browser can take some time to finish because it's asynchronous.
@@ -33,14 +34,19 @@ self.addEventListener('install', (installEvent) => {
   installEvent.waitUntil(
     // Once the cache API is ready, we can run the open() method
     // and create our cache by passing its name as an argument to
-    // caches.open(staticDevCoffee).
-    caches.open(staticDevCoffee).then((cache) => {
+    // caches.open(cacheName).
+    caches.open(cacheName).then((cache) => {
       // Then it returns a promise,
       // which helps us store our assets in the cache with
       // cache.addAll(assets).
       cache.addAll(assets)
     })
   )
+})
+
+// ? THIRD LIFECYCLE OF SW - "ACTIVE"
+self.addEventListener('activate', (event) => {
+  console.log('V1 now ready to handle fetches!')
 })
 
 // We will use `fetch` event to get back our data.
@@ -54,6 +60,7 @@ self.addEventListener('fetch', (fetchEvent) => {
   )
 })
 
+// Push Notification
 self.addEventListener('push', (event) => {
   const title = 'A message from the President'
   const body = 'Patayen keta'
